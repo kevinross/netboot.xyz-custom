@@ -5,7 +5,7 @@
 
 :start
 echo Hello world!
-chain https://raw.githubusercontent.com/kevinr/netboot.xyz-custom/master/custom.ipxe.example || goto custom_exit
+chain https://raw.githubusercontent.com/kevinross/netboot.xyz-custom/master/custom.ipxe.example || goto custom_exit
 goto custom_exit
 
 :custom_exit
