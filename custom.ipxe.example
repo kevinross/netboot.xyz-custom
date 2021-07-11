@@ -15,7 +15,7 @@ goto custom_exit
 
 :option_one
 imgfree
-kernel http://192.168.10.166:8000/vmlinuz ip=dhcp boot=casper netboot=http fetch=http://192.168.10.166:8000/filesystem.squashfs
+kernel http://192.168.10.166:8000/vmlinuz ip=dhcp boot=casper netboot=url fetch=http://192.168.10.166:8000/filesystem.squashfs
 initrd http://192.168.10.166:8000/initrd
 boot || goto custom_exit
 
