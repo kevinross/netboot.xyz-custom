@@ -6,12 +6,8 @@
 :custom
 clear custom_choice
 menu This is a Test Menu
-item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading freedos
-item --gap This is a second sub menu
-item option_three ${space} Loads another custom sub menu
-item option_four ${space} This is option four
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -19,8 +15,8 @@ goto custom_exit
 
 :option_one
 imgfree
-kernel https://boot.netboot.xyz/memdisk
-initrd http://192.168.10.166:8000/FD12LITE.zip
+kernel http://192.168.10.166:8000/vmlinuz ip=dhcp boot=casper netboot=http fetch=http://192.168.10.166:8000/filesystem.squashfs
+initrd http://192.168.10.166:8000/initrd
 boot || goto custom_exit
 
 :option_two
@@ -28,10 +24,6 @@ imgfree
 kernel https://boot.netboot.xyz/memdisk
 initrd http://192.168.10.166:8000/FD12LITE.img
 boot || goto custom_exit
-
-:option_three
-echo Chains into another menu...
-chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
 
 :custom_exit
 chain utils.ipxe
